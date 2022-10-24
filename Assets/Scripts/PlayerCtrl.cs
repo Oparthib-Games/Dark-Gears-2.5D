@@ -34,6 +34,8 @@ public class PlayerCtrl : MonoBehaviour
     // ! =========== Move ===========
     [SerializeField]
     private Vector3 moveAmount;
+    [SerializeField]
+    private Vector3 moveAmountNormalize;
     private int facingDirection = 1;
     private int right = 1;
     private int left = -1;
@@ -251,7 +253,7 @@ public class PlayerCtrl : MonoBehaviour
     {
         if(canMove)
         {
-            Vector3 moveAmountNormalize = Vector3.Normalize(moveAmount);
+            moveAmountNormalize = Vector3.Normalize(moveAmount);
             Anim.SetFloat("Horizontal", Mathf.Abs(moveAmountNormalize.x));
             Anim.SetFloat("Vertical", Mathf.Abs(moveAmountNormalize.z));
         }

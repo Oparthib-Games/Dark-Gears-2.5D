@@ -5779,6 +5779,90 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1717141244, guid: c9340cde130780c45985c023f2d3e14f, type: 3}
+      propertyPath: swordLightAudio.Array.size
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1717141244, guid: c9340cde130780c45985c023f2d3e14f, type: 3}
+      propertyPath: swordLightAudio.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 9ed6710e61bd0224e907e2f84632fe3b, type: 3}
+    - target: {fileID: 1717141244, guid: c9340cde130780c45985c023f2d3e14f, type: 3}
+      propertyPath: swordLightAudio.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: a048e57705d54e448967fd41f11de6f3, type: 3}
+    - target: {fileID: 1717141244, guid: c9340cde130780c45985c023f2d3e14f, type: 3}
+      propertyPath: swordLightAudio.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 836205f06e63ae14c9b9ba8ff3e6e2d3, type: 3}
+    - target: {fileID: 1717141244, guid: c9340cde130780c45985c023f2d3e14f, type: 3}
+      propertyPath: swordLightAudio.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: fdb2b8d46a299ab4aa419d78d7bdb8d4, type: 3}
+    - target: {fileID: 1717141244, guid: c9340cde130780c45985c023f2d3e14f, type: 3}
+      propertyPath: swordLightAudio.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3790de8f07539f246939f4df198fdfff, type: 3}
+    - target: {fileID: 1717141244, guid: c9340cde130780c45985c023f2d3e14f, type: 3}
+      propertyPath: swordLightAudio.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: abfd64287ddc98d468c7332148ca2d99, type: 3}
+    - target: {fileID: 1717141244, guid: c9340cde130780c45985c023f2d3e14f, type: 3}
+      propertyPath: swordLightAudio.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: a556d2069ff4fc247a80811a823b936f, type: 3}
+    - target: {fileID: 1717141244, guid: c9340cde130780c45985c023f2d3e14f, type: 3}
+      propertyPath: swordLightAudio.Array.data[7]
+      value: 
+      objectReference: {fileID: 8300000, guid: ccde6e75f43faa744af5b2cad86c5c16, type: 3}
+    - target: {fileID: 1717141244, guid: c9340cde130780c45985c023f2d3e14f, type: 3}
+      propertyPath: swordLightAudio.Array.data[8]
+      value: 
+      objectReference: {fileID: 8300000, guid: 6f6c22af8806f7e4188e896a93286cc5, type: 3}
+    - target: {fileID: 1717141244, guid: c9340cde130780c45985c023f2d3e14f, type: 3}
+      propertyPath: swordLightAudio.Array.data[9]
+      value: 
+      objectReference: {fileID: 8300000, guid: 06ab74d64f5c5fd4d93753d15aabfbe9, type: 3}
+    - target: {fileID: 1717141244, guid: c9340cde130780c45985c023f2d3e14f, type: 3}
+      propertyPath: swordLightAudio.Array.data[10]
+      value: 
+      objectReference: {fileID: 8300000, guid: 402e709d34ccc4d43a7c82b9c993abbc, type: 3}
+    - target: {fileID: 1717141244, guid: c9340cde130780c45985c023f2d3e14f, type: 3}
+      propertyPath: swordLightAudio.Array.data[11]
+      value: 
+      objectReference: {fileID: 8300000, guid: 0dfe0f89a416ace489996ca334ecefbe, type: 3}
+    - target: {fileID: 1717141244, guid: c9340cde130780c45985c023f2d3e14f, type: 3}
+      propertyPath: swordLightAudio.Array.data[12]
+      value: 
+      objectReference: {fileID: 8300000, guid: 5bcbbbc269f364f4bba211a5fd0fdc8b, type: 3}
+    - target: {fileID: 1717141244, guid: c9340cde130780c45985c023f2d3e14f, type: 3}
+      propertyPath: swordLightAudio.Array.data[13]
+      value: 
+      objectReference: {fileID: 8300000, guid: 87af7dacbcedd1f4c987f44f6f7e0bf6, type: 3}
+    - target: {fileID: 1717141244, guid: c9340cde130780c45985c023f2d3e14f, type: 3}
+      propertyPath: swordLightAudio.Array.data[14]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4877857ca4dc6cc4b8d60ebbc40abe92, type: 3}
+    - target: {fileID: 1717141244, guid: c9340cde130780c45985c023f2d3e14f, type: 3}
+      propertyPath: swordLightAudio.Array.data[15]
+      value: 
+      objectReference: {fileID: 8300000, guid: f3762c3b0b1a1a846a2f68dea7021624, type: 3}
+    - target: {fileID: 1717141244, guid: c9340cde130780c45985c023f2d3e14f, type: 3}
+      propertyPath: swordLightAudio.Array.data[16]
+      value: 
+      objectReference: {fileID: 8300000, guid: a38e0b92a90063148a89f6fb6861de27, type: 3}
+    - target: {fileID: 1717141244, guid: c9340cde130780c45985c023f2d3e14f, type: 3}
+      propertyPath: swordLightAudio.Array.data[17]
+      value: 
+      objectReference: {fileID: 8300000, guid: 333abab797c26504c80f6d2483eea2de, type: 3}
+    - target: {fileID: 1717141244, guid: c9340cde130780c45985c023f2d3e14f, type: 3}
+      propertyPath: swordLightAudio.Array.data[18]
+      value: 
+      objectReference: {fileID: 8300000, guid: cf91c6ccf43e5da4282f79079592e47a, type: 3}
+    - target: {fileID: 1717141244, guid: c9340cde130780c45985c023f2d3e14f, type: 3}
+      propertyPath: swordLightAudio.Array.data[19]
+      value: 
+      objectReference: {fileID: 8300000, guid: d6111d9d031c6de4e9a32c04f9a79d2f, type: 3}
     - target: {fileID: 4207657431740858747, guid: c9340cde130780c45985c023f2d3e14f,
         type: 3}
       propertyPath: m_RootOrder
@@ -5833,6 +5917,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4737428426016668033, guid: c9340cde130780c45985c023f2d3e14f,
+        type: 3}
+      propertyPath: jumpSpeed
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 6678248311525647437, guid: c9340cde130780c45985c023f2d3e14f,
         type: 3}
