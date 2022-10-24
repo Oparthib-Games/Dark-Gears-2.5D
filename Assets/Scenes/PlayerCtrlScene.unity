@@ -5876,7 +5876,7 @@ PrefabInstance:
     - target: {fileID: 4207657431740858747, guid: c9340cde130780c45985c023f2d3e14f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.55
+      value: -3.99
       objectReference: {fileID: 0}
     - target: {fileID: 4207657431740858747, guid: c9340cde130780c45985c023f2d3e14f,
         type: 3}
@@ -5923,6 +5923,11 @@ PrefabInstance:
       propertyPath: jumpSpeed
       value: 500
       objectReference: {fileID: 0}
+    - target: {fileID: 4921648806200754801, guid: c9340cde130780c45985c023f2d3e14f,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 208540ec580f74a4daa9d66f20544b40, type: 2}
     - target: {fileID: 6678248311525647437, guid: c9340cde130780c45985c023f2d3e14f,
         type: 3}
       propertyPath: m_Name

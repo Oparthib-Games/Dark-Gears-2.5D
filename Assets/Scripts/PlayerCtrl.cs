@@ -6,7 +6,11 @@ public class PlayerCtrl : MonoBehaviour
 {
     // ! =========== Speed ===========
     [SerializeField]
-    private float moveSpeed = 35f;
+    private float moveSpeed = 0f;
+    [SerializeField]
+    private float moveSpeedIncreaseRate = 0.7f;
+    [SerializeField]
+    private float maxMoveSpeed = 35f;
     [SerializeField]
     private float turnSpeed = 0.1f;
     [SerializeField]
@@ -101,9 +105,22 @@ public class PlayerCtrl : MonoBehaviour
     {
         if (!canMove) return;
 
-        moveAmount = transform.forward * InputHandler.H * Mathf.Sign(InputHandler.H) * Time.deltaTime * moveSpeed;
-        //moveAmount.x = Mathf.Abs(moveAmount.x);
-        RB.AddForce(moveAmount, ForceMode.Impulse);
+        #region Increase moveSpeed at specific rate
+        if (InputHandler.H != 0)
+        {
+            if (moveSpeed < maxMoveSpeed)
+                moveSpeed += moveSpeedIncreaseRate;
+        }
+        else
+        {
+            if (moveSpeed > 0)
+                moveSpeed -= moveSpeedIncreaseRate;
+        }
+        #endregion
+
+        moveAmount = transform.forward * moveSpeed;
+        
+        RB.AddForce(moveAmount * Time.deltaTime, ForceMode.Impulse);
     }
     public void RotationHandler()
     {
@@ -254,7 +271,8 @@ public class PlayerCtrl : MonoBehaviour
         if(canMove)
         {
             moveAmountNormalize = Vector3.Normalize(moveAmount);
-            Anim.SetFloat("Horizontal", Mathf.Abs(moveAmountNormalize.x));
+            float Horizontal = (moveAmount.x / maxMoveSpeed);
+            Anim.SetFloat("Horizontal", Mathf.Abs(Horizontal));
             Anim.SetFloat("Vertical", Mathf.Abs(moveAmountNormalize.z));
         }
         Anim.SetBool("isJump", isJump);
