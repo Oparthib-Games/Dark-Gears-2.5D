@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerCtrl))]
 public class PlayerCombat : MonoBehaviour
 {
+    [Header("Attack")]
     [SerializeField]
     private int combo = 0;
     [SerializeField]
@@ -15,6 +16,10 @@ public class PlayerCombat : MonoBehaviour
     private bool startAttack = false;
     [SerializeField]
     private bool isAttacking = false;
+
+    [Header("Block")]
+    [SerializeField]
+    private bool startBlock = false;
 
 
     [SerializeField]
@@ -44,6 +49,14 @@ public class PlayerCombat : MonoBehaviour
         playerCtrl.setCanMove(!isAttacking);
         playerCtrl.setCanRotate(!isAttacking);
 
+        Attack();
+        Block();
+
+        AnimationHandler();
+    }
+
+    public void Attack()
+    {
         if (Time.time > comboTimerReset && combo > 0)
         {
             combo = 0;
@@ -56,19 +69,29 @@ public class PlayerCombat : MonoBehaviour
             if (combo == 0) startAttack = true;
             comboTimerReset = Time.time + comboTime;
             canAttack = false;
-            if(!isAttacking || combo != 0) combo++;
+            if (!isAttacking || combo != 0) combo++;
         }
 
 
         if (!InputHandler.isAttack) canAttack = true;
+    }
 
-        AnimationHandler();
+    public void Block()
+    {
+        if(InputHandler.isBlock)
+        {
+            startBlock = true;
+        } else
+        {
+            startBlock = false;
+        }
     }
 
     public void AnimationHandler()
     {
         Anim.SetInteger("Combo", combo);
         Anim.SetBool("startAttack", startAttack);
+        Anim.SetBool("startBlock", startBlock);
     }
 
     private void IsPLayingAttackAnimation()

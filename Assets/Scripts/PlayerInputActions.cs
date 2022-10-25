@@ -62,6 +62,15 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Block"",
+                    ""type"": ""Button"",
+                    ""id"": ""37799006-da54-47ad-9c31-27d530ecd6dc"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -152,6 +161,17 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dbc28de6-d91f-4039-a0c2-3a8bcdd955f1"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Block"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -164,6 +184,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_PlayerInputMap_Movement = m_PlayerInputMap.FindAction("Movement", throwIfNotFound: true);
         m_PlayerInputMap_Attack = m_PlayerInputMap.FindAction("Attack", throwIfNotFound: true);
         m_PlayerInputMap_Dash = m_PlayerInputMap.FindAction("Dash", throwIfNotFound: true);
+        m_PlayerInputMap_Block = m_PlayerInputMap.FindAction("Block", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -227,6 +248,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerInputMap_Movement;
     private readonly InputAction m_PlayerInputMap_Attack;
     private readonly InputAction m_PlayerInputMap_Dash;
+    private readonly InputAction m_PlayerInputMap_Block;
     public struct PlayerInputMapActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -235,6 +257,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         public InputAction @Movement => m_Wrapper.m_PlayerInputMap_Movement;
         public InputAction @Attack => m_Wrapper.m_PlayerInputMap_Attack;
         public InputAction @Dash => m_Wrapper.m_PlayerInputMap_Dash;
+        public InputAction @Block => m_Wrapper.m_PlayerInputMap_Block;
         public InputActionMap Get() { return m_Wrapper.m_PlayerInputMap; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -256,6 +279,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Dash.started -= m_Wrapper.m_PlayerInputMapActionsCallbackInterface.OnDash;
                 @Dash.performed -= m_Wrapper.m_PlayerInputMapActionsCallbackInterface.OnDash;
                 @Dash.canceled -= m_Wrapper.m_PlayerInputMapActionsCallbackInterface.OnDash;
+                @Block.started -= m_Wrapper.m_PlayerInputMapActionsCallbackInterface.OnBlock;
+                @Block.performed -= m_Wrapper.m_PlayerInputMapActionsCallbackInterface.OnBlock;
+                @Block.canceled -= m_Wrapper.m_PlayerInputMapActionsCallbackInterface.OnBlock;
             }
             m_Wrapper.m_PlayerInputMapActionsCallbackInterface = instance;
             if (instance != null)
@@ -272,6 +298,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Dash.started += instance.OnDash;
                 @Dash.performed += instance.OnDash;
                 @Dash.canceled += instance.OnDash;
+                @Block.started += instance.OnBlock;
+                @Block.performed += instance.OnBlock;
+                @Block.canceled += instance.OnBlock;
             }
         }
     }
@@ -282,5 +311,6 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
+        void OnBlock(InputAction.CallbackContext context);
     }
 }

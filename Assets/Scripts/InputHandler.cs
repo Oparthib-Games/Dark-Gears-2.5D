@@ -9,6 +9,7 @@ public class InputHandler : MonoBehaviour
     public static float V; //Vertical
     public static bool isJump;
     public static bool isAttack;
+    public static bool isBlock;
     public static bool isDash;
 
     PlayerInputActions playerInputActions;
@@ -24,6 +25,7 @@ public class InputHandler : MonoBehaviour
         HandleWASDInput();
         HandleJumpInput();
         HandleAttackInput();
+        HandleBlockInput();
         HandleDashInput();
     }
 
@@ -40,6 +42,10 @@ public class InputHandler : MonoBehaviour
     private void HandleAttackInput()
     {
         isAttack = playerInputActions.PlayerInputMap.Attack.phase == UnityEngine.InputSystem.InputActionPhase.Performed;
+    }
+    private void HandleBlockInput()
+    {
+        isBlock = playerInputActions.PlayerInputMap.Block.phase == UnityEngine.InputSystem.InputActionPhase.Performed;
     }
     private void HandleDashInput()
     {
