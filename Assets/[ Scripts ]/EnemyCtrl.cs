@@ -30,6 +30,7 @@ public class EnemyCtrl : MonoBehaviour
 
     Rigidbody RB;
     Animator Anim;
+    AnimatorStateInfo AnimState;
     CapsuleCollider Collider;
 
     // ! =========== Bullshit ===========
@@ -40,14 +41,24 @@ public class EnemyCtrl : MonoBehaviour
         RB = GetComponent<Rigidbody>();
         Anim = GetComponent<Animator>();
         Collider = GetComponent<CapsuleCollider>();
+
+        StartCoroutine(TEST());
     }
 
     private void Update()
     {
+        AnimState = Anim.GetCurrentAnimatorStateInfo(0);
+
         Controller();
         if (state == states.IDLE) Idle();
-        if(state == states.CHASE) Chanse();
+        if(state == states.CHASE) Chase();
         if(state == states.COMBO_01) Combo01();
+    }
+
+    private IEnumerator TEST()
+    {
+        yield return new WaitForSeconds(5.0f);
+        state = states.COMBO_01;
     }
 
     public void Controller()
@@ -90,6 +101,7 @@ public class EnemyCtrl : MonoBehaviour
 
     private void Idle()
     {
+        Anim.CrossFade("Locomotion", 0.12f, -1);
         if (moveSpeed > 0)
         {
             moveSpeed -= moveSpeedIncreaseRate * Time.deltaTime;
@@ -99,9 +111,10 @@ public class EnemyCtrl : MonoBehaviour
         Anim.SetFloat("Horizontal", moveSpeed / maxMoveSpeed);
     }
 
-    private void Chanse()
+    private void Chase()
     {
         if (!target) return;
+        Anim.CrossFade("Locomotion", 0.12f, -1);
 
         if (moveSpeed < maxMoveSpeed)
             moveSpeed += moveSpeedIncreaseRate * Time.deltaTime;
@@ -120,6 +133,26 @@ public class EnemyCtrl : MonoBehaviour
 
     private void Combo01()
     {
-        
+        if (!CheckAnimState(new string[] { "Attack 1", "Attack 2", "Attack 3"}))
+        {
+            Anim.CrossFade("Attack 1", 0.2f, 0);
+        }
+    }
+
+    private bool CheckAnimState(string[] anim_states)
+    {
+        foreach (string anim_state in anim_states)
+        {
+            if (AnimState.IsName(anim_state)) return true;
+        }
+        return false;
+    }
+
+    // =====================================
+    //           Animation Events
+    // =====================================
+    private void AttackEvent(AnimationEvent animationEvent)
+    {
+        Debug.Log("Attacking......");
     }
 }
