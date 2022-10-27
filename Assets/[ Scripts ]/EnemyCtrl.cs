@@ -8,9 +8,9 @@ public class EnemyCtrl : MonoBehaviour
     private GameObject player;
 
     [SerializeField]
-    private Vector3 moveAmount;
+    private float moveSpeed = 0f;
     [SerializeField]
-    private float moveSpeed = 35f;
+    private float maxMoveSpeed = 1f;
 
     Rigidbody RB;
     Animator Anim;
@@ -24,18 +24,15 @@ public class EnemyCtrl : MonoBehaviour
     private void Update()
     {
         GoCloseToPlayer();
-        AnimationHandler();
     }
 
     private void GoCloseToPlayer()
     {
-        moveAmount = player.transform.position * 1 * Time.deltaTime * moveSpeed * RB.mass;
-        RB.AddForce(moveAmount, ForceMode.Impulse);
-    }
+        Vector3 target_position = transform.position;
+        target_position.x = player.transform.position.x;
+        //transform.position = Vector3.Lerp(transform.position, target_position, moveSpeed * Time.deltaTime);
 
-    public void AnimationHandler()
-    {
-        Vector3 moveAmountNormalize = Vector3.Normalize(moveAmount);
-        Anim.SetFloat("Horizontal", Mathf.Abs(moveAmountNormalize.x));
+
+        Anim.SetFloat("Horizontal", moveSpeed / maxMoveSpeed);
     }
 }

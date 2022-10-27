@@ -20,7 +20,9 @@ public class PlayerCtrl : MonoBehaviour
     [SerializeField]
     private float jumpFallSpeed = 3.5f;
     [SerializeField]
-    private float dashSpeed = 3500f;
+    private float dashForwardSpeed = 2500f;
+    [SerializeField]
+    private float dashBackwardSpeed = 1500f;
 
     // ! =========== Hanging ===========
     [SerializeField]
@@ -289,7 +291,10 @@ public class PlayerCtrl : MonoBehaviour
         if (isDash)
         {
             dashTimeoutDelta = dashTimeout;
-            Anim.Play("Dash Forward");
+            if(InputHandler.H == 0)
+                Anim.Play("Dash Backward");
+            else
+                Anim.Play("Dash Forward");
             isDash = false;
         }
     }
@@ -315,7 +320,11 @@ public class PlayerCtrl : MonoBehaviour
     }
     private void DashForwardEvent(AnimationEvent animationEvent)
     {
-        RB.AddForce(Vector3.right * dashSpeed * facingDirection * Time.deltaTime, ForceMode.Impulse);
+        RB.AddForce(Vector3.right * dashForwardSpeed * facingDirection * Time.deltaTime, ForceMode.Impulse);
+    }
+    private void DashBackwardEvent(AnimationEvent animationEvent)
+    {
+        RB.AddForce(Vector3.right * dashBackwardSpeed * facingDirection * -1 * Time.deltaTime, ForceMode.Impulse);
     }
 
 
