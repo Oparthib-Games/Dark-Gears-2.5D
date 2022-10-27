@@ -110,11 +110,13 @@ public class PlayerCtrl : MonoBehaviour
         #region Increase moveSpeed at specific rate
         if (InputHandler.H != 0)
         {
+            // TODO: Increase Move speed with Time.DeltaTime
             if (moveSpeed < maxMoveSpeed)
                 moveSpeed += moveSpeedIncreaseRate;
         }
         else
         {
+            // TODO: Decrease Move speed with Time.DeltaTime
             if (moveSpeed > 0)
                 moveSpeed -= moveSpeedIncreaseRate;
         }
