@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyCtrl : MonoBehaviour
 {
-    private enum states { IDLE, PATROL, CHASE, COMBO_01, COMBO_02, COMBO_03, COMBO_04 }
+    protected enum states { IDLE, PATROL, CHASE, COMBO_01, COMBO_02, COMBO_03, COMBO_04 }
     [SerializeField]
     private states state = states.IDLE;
 
@@ -35,31 +35,48 @@ public class EnemyCtrl : MonoBehaviour
 
     // ! =========== Bullshit ===========
     float currentVelocity;
-    
+
+    // ! =========== Abstract Functions ===========
+    protected virtual void Enter()
+    {
+
+    }
+    protected virtual void Tick()
+    {
+        print("TICKKKK");
+    }
+    protected virtual void Exit()
+    {
+
+    }
+
     private void Start()
     {
         RB = GetComponent<Rigidbody>();
         Anim = GetComponent<Animator>();
         Collider = GetComponent<CapsuleCollider>();
 
-        StartCoroutine(TEST());
+        SwitchState(states.IDLE);
     }
 
     private void Update()
     {
         AnimState = Anim.GetCurrentAnimatorStateInfo(0);
 
-        Controller();
-        if (state == states.IDLE) Idle();
-        if(state == states.CHASE) Chase();
-        if(state == states.COMBO_01) Combo01();
+        Tick();
+        //Controller();
+        //if (state == states.IDLE) Idle();
+        //if(state == states.CHASE) Chase();
+        //if(state == states.COMBO_01) Combo01();
     }
 
-    private IEnumerator TEST()
+    protected void SwitchState(states newState)
     {
-        yield return new WaitForSeconds(5.0f);
-        state = states.COMBO_01;
+        Exit();
+        state = newState;
+        Enter();
     }
+
 
     public void Controller()
     {

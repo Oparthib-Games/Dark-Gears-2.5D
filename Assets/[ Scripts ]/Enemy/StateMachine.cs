@@ -4,12 +4,16 @@ using UnityEngine;
 
 public abstract class StateMachine : MonoBehaviour
 {
-    private State currState;
+    protected State currState;
+
+    [SerializeField]
+    protected string currStateName;
 
     public void SwitchState(State newState)
     {
         currState?.Exit();
         currState = newState;
+        currStateName = newState.name;
         currState?.Enter();
     }
 

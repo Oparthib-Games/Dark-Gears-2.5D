@@ -6,6 +6,6 @@ public class BlackKnightStateMachine : StateMachine
 {
     private void Start()
     {
-        SwitchState(new ChaseState(this));
+        SwitchState(new OldChaseState(this));
     }
 }

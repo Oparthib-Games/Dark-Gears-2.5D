@@ -2,25 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChaseState : BlackKnightBaseState
+namespace BlackKnight
 {
-    public ChaseState(BlackKnightStateMachine stateMachine) : base(stateMachine)
+    public class ChaseState : State
     {
+        BlackKnightCtrl CTRL;
 
-    }
+        public ChaseState(BlackKnightCtrl CTRL)
+        {
+            this.name = "Idle";
+            this.CTRL = CTRL;
+        }
 
-    public override void Enter()
-    {
-        Debug.Log("Enter");
-    }
+        public override void Enter()
+        {
+            throw new System.NotImplementedException();
+        }
 
-    public override void Tick(float delta)
-    {
-        Debug.Log("Tick");
-    }
+        public override void Exit()
+        {
+            throw new System.NotImplementedException();
+        }
 
-    public override void Exit()
-    {
-        Debug.Log("Exit");
+        public override void Tick(float delta)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
