@@ -25,6 +25,8 @@ public class BlackKnightCtrl : MonoBehaviour
     private bool isAttack = false;
     [SerializeField]
     private int comboType = 1;
+    [SerializeField]
+    private string[] attackAnimStateNames = { "Attack 1", "Attack 2", "Attack 3", "Attack Idle" };
 
     private Vector3 targetPosition;
     private Vector3 targetPositionLand;
@@ -112,10 +114,9 @@ public class BlackKnightCtrl : MonoBehaviour
     private void GoToMaxSpeed()
     {
         // If Attacking animation is playing, don't move
-        if (CheckAnimState(new string[] { "Attack 1", "Attack 2", "Attack 3", "Attack Idle" }))
+        if (CheckAnimState(attackAnimStateNames))
         {
             moveSpeed = 0;
-            Debug.Log("WHYYYYYYYYY");
             return;
         }
 
